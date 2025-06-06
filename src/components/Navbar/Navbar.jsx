@@ -1,0 +1,54 @@
+import React, { useState } from 'react'
+import './Navbar.css'
+import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
+import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
+
+const Navbar = () => {
+    const [active, setActive] = useState('menu')
+    return (
+        <div className="navbar bg-black shadow-sm">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                    </div>
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a>Item 1</a></li>
+                        <li>
+                            <a>Parent</a>
+                            <ul className="p-2">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li className='active'><a>Item 3</a></li>
+                    </ul>
+                </div>
+                <ShinyText text="Meal Hub" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
+            </div>
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                    <li onClick={() => setActive('home')} className={active === 'home' ? 'active' : ''}><a>Home</a></li>
+                    <li onClick={() => setActive('menu')} className={active === 'menu' ? 'active' : ''}><a>Menu</a></li>
+                    <li onClick={() => setActive('mobile-app')} className={active === 'mobile-app' ? 'active' : ''}><a>Mobile App</a></li>
+                    <li onClick={() => setActive('contact-us')} className={active === 'contact-us' ? 'active' : ''}><a>Contact Us</a></li>
+                </ul>
+            </div>
+            <div className="navbar-end">
+                <StarBorder
+                    as="button"
+                    className="custom-class bg-transparent text-4xl "
+                    color="cyan"
+                    speed="3s"
+                >
+                    Login
+                </StarBorder>
+            </div>
+
+        </div>
+    )
+}
+
+export default Navbar
