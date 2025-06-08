@@ -2,9 +2,18 @@ import React, { useState } from 'react'
 import './Navbar.css'
 import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
+import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
+import label from 'daisyui/components/label'
 
 const Navbar = () => {
-    const [active, setActive] = useState('menu')
+    
+    const items = [
+        { label: "Home", href: "#" },
+        { label: "About", href: "#" },
+        { label: "Contact", href: "#" },
+        {label:"Mobile",href:"#"}
+    ];
+
     return (
         <div className="navbar bg-black shadow-sm">
             <div className="navbar-start">
@@ -28,19 +37,23 @@ const Navbar = () => {
                 </div>
                 <ShinyText text="Meal Hub" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li onClick={() => setActive('home')} className={active === 'home' ? 'active' : ''}><a>Home</a></li>
-                    <li onClick={() => setActive('menu')} className={active === 'menu' ? 'active' : ''}><a>Menu</a></li>
-                    <li onClick={() => setActive('mobile-app')} className={active === 'mobile-app' ? 'active' : ''}><a>Mobile App</a></li>
-                    <li onClick={() => setActive('contact-us')} className={active === 'contact-us' ? 'active' : ''}><a>Contact Us</a></li>
-                </ul>
+            <div style={{  position: 'relative' }} className='hidden md:block'>
+                <GooeyNav
+                    items={items}
+                    particleCount={15}
+                    particleDistances={[90, 10]}
+                    particleR={100}
+                    initialActiveIndex={0}
+                    animationTime={600}
+                    timeVariance={300}
+                    colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+                />
             </div>
             <div className="navbar-end">
                 <StarBorder
                     as="button"
-                    className="custom-class bg-transparent text-4xl "
-                    color="cyan"
+                    className="custom-class bg-transparent text-4xl  "
+                    color="white"
                     speed="3s"
                 >
                     Login
