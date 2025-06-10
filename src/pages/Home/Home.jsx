@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Hyperspeed from '../../blocks/Backgrounds/Hyperspeed/Hyperspeed';
 import Particles from '../../blocks/Backgrounds/Particles/Particles';
+import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       {/* Foreground content */}
       <div className="relative z-10">
         <Header />
+        <ExploreMenu/>
         {/* You can add more content here */}
       </div>
     </div>
