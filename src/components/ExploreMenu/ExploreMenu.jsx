@@ -13,7 +13,7 @@ const ExploreMenu = ({ category, setCategory }) => {
                     menu_list.map((item, index) => {
                         return (
                             <div className='explore-menu-list-item text-center ' key={index} onClick={() => setCategory(prev => prev === item.menu_name ? "All" : item.menu_name)}>
-                                <img src={item.menu_image} alt="" className={category===item.menu_name?'active':''}/>
+                                <img src={item.menu_image} alt="" className={category===item.menu_name?'active1':''}/>
                                 <p>{item.menu_name}</p>
                             </div>
                         )
