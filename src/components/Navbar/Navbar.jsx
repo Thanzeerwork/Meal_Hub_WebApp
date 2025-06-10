@@ -3,7 +3,7 @@ import './Navbar.css'
 import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
 import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
-import label from 'daisyui/components/label'
+
 
 const Navbar = () => {
     
@@ -15,7 +15,7 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="navbar bg-black shadow-sm">
+        <div className="navbar fixed top-0 left-0 w-full bg-transparent z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,7 +35,7 @@ const Navbar = () => {
                         <li className='active'><a>Item 3</a></li>
                     </ul>
                 </div>
-                <ShinyText text="Meal Hub" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
+                <ShinyText text="Galaxy Meals" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
             </div>
             <div style={{  position: 'relative' }} className='hidden md:block'>
                 <GooeyNav

@@ -5,7 +5,7 @@ import Particles from '../../blocks/Backgrounds/Particles/Particles';
 
 const Home = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden pt-25">
       {/* Hyperspeed as background */}
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
         <Particles
