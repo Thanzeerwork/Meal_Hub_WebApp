@@ -1,13 +1,13 @@
-.header {
-  height: 34vw;
-  background: url('../../assets/frontend_assets/header_img.png') no-repeat;
-  background-size: contain;
-  background-position: right center;
+.hero-content-padding{
+  padding: 0;
+  margin: 0;
 }
-
-/* For small screens (mobile-first approach) */
-@media (max-width: 768px) {
-  .header {
-    background-position: top center;
-  }
+.hero-content-modified {
+    isolation: isolate;
+    display: flex;
+    max-width: 80rem /* 1280px */;
+    align-items: center;
+    justify-content: center;
+    gap: calc(0.25rem /* 4px */ * 4) /* 1rem = 16px */;
+    padding: calc(0.25rem /* 4px */ * 4) /* 1rem = 16px */;
 }
