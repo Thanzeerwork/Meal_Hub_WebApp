@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import Footer from './components/Footer/Footer'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
     <Route path='/register' element={<Register/>}/>
     
    </Routes>
+   <Footer/>
    </div>
   )
 }

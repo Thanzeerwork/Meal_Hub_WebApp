@@ -5,7 +5,7 @@ import './ExploreMenu.css';
 
 const ExploreMenu = ({ category, setCategory }) => {
     return (
-        <div className='bg-transparent explore-menu '>
+        <div className='bg-transparent explore-menu ' id='menu'>
             <h1 className='text-3xl font-bold py-5'>Explore menu</h1>
             <p className='explore-menu-text max-w-200'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, fugit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae ipsam magni, soluta atque cumque obcaecati non saepe ab adipisci corporis.</p>
             <div className="explore-menu-list justify-around flex py-10">

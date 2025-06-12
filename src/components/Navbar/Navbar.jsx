@@ -9,8 +9,8 @@ const Navbar = () => {
     
     const items = [
         { label: "Home", href: "#" },
-        { label: "About", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "Menu", href: "#menu" },
+        { label: "Contact", href: "#footer" },
         {label:"Mobile",href:"#"}
     ];
 
@@ -52,7 +52,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 <StarBorder
                     as="button"
-                    className="custom-class bg-transparent text-4xl  "
+                    className="custom-class bg-transparent text-4xl px-15 "
                     color="white"
                     speed="3s"
                 >
