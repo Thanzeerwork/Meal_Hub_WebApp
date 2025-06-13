@@ -4,10 +4,12 @@ import Header from '../../components/Header/Header';
 import Particles from '../../blocks/Backgrounds/Particles/Particles';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
+import Login from '../../components/Login/Login';
 
-const Home = () => {
+const Home = ({ShowLogin}) => {
 
   const [category,setCategory]= useState('All')
+  
   return (
     <div className="relative w-full min-h-screen overflow-hidden pt-25">
       {/* particles as background */}
@@ -26,7 +28,8 @@ const Home = () => {
 
       {/* Foreground content */}
       <div className="relative z-10  md:px-30 ">
-        <Header />
+        {ShowLogin?<Login/>: <Header />}
+       
         <ExploreMenu category={category} setCategory={setCategory}/>
         <FoodDisplay category={category}/>
        

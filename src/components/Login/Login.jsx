@@ -6,9 +6,9 @@ import Particles from '../../blocks/Backgrounds/Particles/Particles';
 
 const Login = () => {
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full  overflow-hidden">
       {/* Background Particles */}
-      <div className="absolute inset-0 z-0  bg-black">
+      {/* <div className="absolute inset-0 z-0  bg-black">
         <Particles
           particleColors={['#ffffff', '#ffffff']}
           particleCount={200}
@@ -19,16 +19,14 @@ const Login = () => {
           alphaParticles={false}
           disableRotation={false}
         />
-      </div>
+      </div> */}
 
       {/* Foreground Content */}
-      <div className="relative z-10 w-full h-screen flex flex-col md:flex-row items-center bg-black/50 pointer-events-none">
+      <div className="relative z-10 w-full  flex flex-col md:flex-row items-center bg-black/50 pointer-events-none">
 
         {/* Left side - Login Form */}
-        <div className="w-full md:w-1/2 p-10 flex flex-col justify-center pointer-events-auto">
-          <div className="mb-1">
-            <h3 className="text-center text-2xl font-extrabold text-white">Login In</h3>
-          </div>
+        <div className=" p-10 w-full md:w-1/2  flex flex-col justify-center pointer-events-auto">
+          
           <div>
             <SplitText
               text="Welcome To"
@@ -108,7 +106,7 @@ const Login = () => {
         </div>
 
         {/* Right Side - Spline Scene */}
-        <div className="hidden md:block w-full md:w-1/2 h-screen pointer-events-none">
+        <div className="hidden md:block w-full md:w-1/2 h-160 pointer-events-none">
           <Spline scene="https://prod.spline.design/5prJ3AeVHleKcU55/scene.splinecode" />
         </div>
       </div>

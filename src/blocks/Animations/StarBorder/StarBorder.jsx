@@ -13,7 +13,7 @@ const StarBorder = ({
   ...rest
 }) => {
   return (
-    <Component className={`star-border-container ${className}`} {...rest} >
+    <Component className={`star-border-container ${className}`} {...rest}>
       <div
         className="border-gradient-bottom"
         style={{

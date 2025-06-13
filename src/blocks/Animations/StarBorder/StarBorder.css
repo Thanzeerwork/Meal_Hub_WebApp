@@ -4,16 +4,16 @@
 
 .star-border-container {
   display: inline-block;
-  padding: 2px 0;
+  padding: 1px 0;
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
 .border-gradient-bottom {
   position: absolute;
   width: 300%;
-  height: 40%;
+  height: 50%;
   opacity: 0.7;
   bottom: -11px;
   right: -250%;
@@ -36,8 +36,8 @@
 
 .inner-content {
   position: relative;
-  background: linear-gradient(to bottom, #060606, #111);
   border: 1px solid #222;
+  background: #000;
   color: white;
   font-size: 16px;
   text-align: center;

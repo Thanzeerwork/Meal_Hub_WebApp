@@ -5,7 +5,7 @@ import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
 import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
 
 
-const Navbar = () => {
+const Navbar = ({setShowLogin,ShowLogin}) => {
     
     const items = [
         { label: "Home", href: "#" },
@@ -49,12 +49,13 @@ const Navbar = () => {
                     colors={[1, 2, 3, 1, 2, 3, 1, 4]}
                 />
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end" onClick={()=>setShowLogin(prev => prev === false ? true : false)}>
                 <StarBorder
                     as="button"
                     className="custom-class bg-transparent text-4xl px-15 "
                     color="white"
                     speed="3s"
+                    
                 >
                     Login
                 </StarBorder>
