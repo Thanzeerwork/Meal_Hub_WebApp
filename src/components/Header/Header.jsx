@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './Header.css'
 import headerimage from '../../assets/frontend_assets/header_img.png'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'

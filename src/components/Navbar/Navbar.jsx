@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import './Navbar.css'
 import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'

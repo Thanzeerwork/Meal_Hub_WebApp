@@ -1,9 +1,5 @@
 import Spline from '@splinetool/react-spline';
-import React from 'react';
 import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
-import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText';
-import Particles from '../../blocks/Backgrounds/Particles/Particles';
-
 const Login = () => {
   return (
     <div className="relative w-full  overflow-hidden">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../../components/Header/Header';
 
 import Particles from '../../blocks/Backgrounds/Particles/Particles';
