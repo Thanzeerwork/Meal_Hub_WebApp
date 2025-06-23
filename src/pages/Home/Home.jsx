@@ -5,14 +5,15 @@ import Particles from '../../blocks/Backgrounds/Particles/Particles';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import Login from '../../components/Login/Login';
+import Register from '../../components/Register/Register';
 
 const Home = ({ShowLogin}) => {
 
   const [category,setCategory]= useState('All')
   
   return (
-    <div className="relative w-full min-h-screen overflow-hidden pt-25">
-      {/* particles as background */}
+    <div className="relative w-full  min-h-screen overflow-hidden pt-25">
+     
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
         <Particles
           particleColors={['#ffffff', '#ffffff']}
@@ -26,14 +27,14 @@ const Home = ({ShowLogin}) => {
         />
       </div>
 
-      {/* Foreground content */}
+     
       <div className="relative z-10  md:px-30 ">
         {ShowLogin?<Login/>: <Header />}
        
         <ExploreMenu category={category} setCategory={setCategory}/>
         <FoodDisplay category={category}/>
        
-        {/* You can add more content here */}
+       
       </div>
     </div>
   );

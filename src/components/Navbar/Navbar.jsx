@@ -57,7 +57,7 @@ const Navbar = ({setShowLogin,ShowLogin}) => {
                     speed="3s"
                     
                 >
-                    Login
+                    {ShowLogin?'Go Back':'Login'}
                 </StarBorder>
             </div>
 
