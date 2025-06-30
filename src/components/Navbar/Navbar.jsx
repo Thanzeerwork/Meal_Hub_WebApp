@@ -3,15 +3,17 @@ import './Navbar.css'
 import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
 import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
+import { assets } from '../../assets/frontend_assets/assets'
+import { Link } from 'react-router-dom'
 
 
-const Navbar = ({setShowLogin,ShowLogin}) => {
-    
+const Navbar = ({ setShowLogin, ShowLogin }) => {
+
     const items = [
-        { label: "Home", href: "#" },
-        { label: "Menu", href: "#menu" },
-        { label: "Contact", href: "#footer" },
-        {label:"Mobile",href:"#"}
+        { label: "Home", href: "/#" },
+        { label: "Menu", href: "/#menu" },
+        { label: "Contact", href: "/#footer" },
+        { label: "Mobile", href: "#" }
     ];
 
     return (
@@ -37,7 +39,7 @@ const Navbar = ({setShowLogin,ShowLogin}) => {
                 </div>
                 <ShinyText text="Galaxy Meals" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
             </div>
-            <div style={{  position: 'relative' }} className='hidden md:block'>
+            <div style={{ position: 'relative' }} className='hidden md:block'>
                 <GooeyNav
                     items={items}
                     particleCount={15}
@@ -49,17 +51,25 @@ const Navbar = ({setShowLogin,ShowLogin}) => {
                     colors={[1, 2, 3, 1, 2, 3, 1, 4]}
                 />
             </div>
-            <div className="navbar-end" onClick={()=>setShowLogin(prev => prev === false ? true : false)}>
+            <div className='navbar-end'>
+                <img src={assets.search_icon} className="px-5 filter invert brightness-0" alt="" />
+                <a href="#cart"> <img src={assets.basket_icon} className="px-5 filter invert brightness-0" alt="" /></a>
+                   
+                
+                <div className="" onClick={() => setShowLogin(prev => prev === false ? true : false)}>
                 <StarBorder
                     as="button"
                     className="custom-class bg-transparent text-4xl px-15 "
                     color="white"
                     speed="3s"
-                    
                 >
-                    {ShowLogin?'Go Back':'Login'}
+                    {ShowLogin ? 'Go Back' : 'Login'}
                 </StarBorder>
             </div>
+            </div>
+            
+
+            
 
         </div>
     )

@@ -6,6 +6,7 @@ import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import Login from '../../components/Login/Login';
 import Register from '../../components/Register/Register';
+import Cart from '../Cart/Cart';
 
 const Home = ({ShowLogin}) => {
 
@@ -33,6 +34,7 @@ const Home = ({ShowLogin}) => {
        
         <ExploreMenu category={category} setCategory={setCategory}/>
         <FoodDisplay category={category}/>
+        <Cart/>
        
        
       </div>
