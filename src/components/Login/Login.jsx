@@ -5,6 +5,45 @@ import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 const Login = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showRegister, setRegister] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showRegisterModel,setshowRegisterModel] = useState(false)
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const username = showRegister ? form.username.value : "";
+
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    if (showRegister) {
+      const existing = users.find(user => user.email === email);
+      if (existing) {
+        alert("User already exists with this email!");
+        return;
+      }
+      users.push({ email, password, username });
+      localStorage.setItem("users", JSON.stringify(users));
+      // alert("Registration successful!");
+      setshowRegisterModel(true);
+      setRegister(false);
+    } else {
+      const user = users.find(user => user.email === email && user.password === password);
+      if (user) {
+        setShowSuccessModal(true);
+        return;
+        // You can add a redirect or session flag here
+      } else {
+        alert("Invalid email or password.");
+      }
+    }
+
+    form.reset();
+  };
+
 
   return (
     <div className="w-full min-h-min bg-black flex relative">
@@ -17,6 +56,29 @@ const Login = () => {
           </div>
         </div>
       )}
+      {showSuccessModal && (
+        <dialog open className="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="modal-box bg-black text-white p-6 rounded-md shadow-xl">
+            <h3 className="font-bold text-lg">Login Successful!</h3>
+            <p className="py-4">Welcome,🎉</p>
+            <div className="modal-action">
+              <button className="btn" onClick={() => setShowSuccessModal(false)}>Close</button>
+            </div>
+          </div>
+        </dialog>
+      )}
+      {showRegisterModel && (
+        <dialog open className="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="modal-box bg-black text-white p-6 rounded-md shadow-xl">
+            <h3 className="font-bold text-lg">Register Successful!</h3>
+            <p className="py-4">Welcome,🎉</p>
+            <div className="modal-action">
+              <button className="btn" onClick={() => setshowRegisterModel(false)}>Close</button>
+            </div>
+          </div>
+        </dialog>
+      )}
+
 
       {/* Left - Login Form */}
       <div
@@ -36,15 +98,16 @@ const Login = () => {
           rootMargin="-100px"
           textAlign="center"
         /> */}
-        <h1 className='text-4xl font-semibold text-center'>{showRegister?'Register':'Login'}</h1>
+        <h1 className='text-4xl font-semibold text-center'>{showRegister ? 'Register' : 'Login'}</h1>
         <p className="text-lg mt-4 text-white text-center">
           Enter your email and password to log in. Enjoy your food!
         </p>
-        <form className="space-y-3 h-full w-full">
+        <form className="space-y-3 h-full w-full" onSubmit={handleSubmit}>
           {showRegister
             ? <div>
               <label className="block text-sm font-medium">Username</label>
               <input
+                name='username'
                 className="input  w-full px-4 py-2 bg-transparent border border-white rounded"
                 type="text"
                 required
@@ -57,6 +120,7 @@ const Login = () => {
           <div>
             <label className="block text-sm font-medium">Email</label>
             <input
+              name='email'
               className="input validator w-full px-4 py-2 bg-transparent border border-white rounded"
               type="email"
               required
@@ -69,12 +133,13 @@ const Login = () => {
           <div>
             <label className="block text-sm font-medium">Password</label>
             <input
+              name='password'
               type="password"
               className="input validator w-full px-4 py-2 bg-transparent border border-white rounded"
               required
               placeholder="Password"
               minLength="6"
-              pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
             />
             <p className="validator-hint text-sm text-white/70">
@@ -88,11 +153,11 @@ const Login = () => {
             type="submit"
             className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition"
           >
-            {showRegister?'Register':'Login'}
+            {showRegister ? 'Register' : 'Login'}
           </button>
           <h6 className="text-center text-white">
-            {showRegister?'Already have an account? ':"Don't have an account? " }
-            
+            {showRegister ? 'Already have an account? ' : "Don't have an account? "}
+
             <span className="underline decoration-sky-500 text-blue-500 cursor-pointer" onClick={() => {
               setRegister(prev => prev === false ? true : false)
               console.log("register button clicked")

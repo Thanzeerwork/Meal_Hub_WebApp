@@ -13,7 +13,7 @@
     "@splinetool/react-spline": "^4.0.0",
     "@tailwindcss/vite": "^4.1.8",
     "daisyui": "^5.0.43",
-    "framer-motion": "^11.18.2",
+    "framer-motion": "^12.19.3",
     "gsap": "^3.13.0",
     "ogl": "^1.0.11",
     "postprocessing": "^6.37.4",

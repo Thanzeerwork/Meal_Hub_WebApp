@@ -52,7 +52,8 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                 />
             </div>
             <div className='navbar-end'>
-                <img src={assets.search_icon} className="px-5 filter invert brightness-0" alt="" />
+                <a href="#menu"><img src={assets.search_icon} className="px-5 filter invert brightness-0" alt="" /></a>
+                
                 <a href="#cart"> <img src={assets.basket_icon} className="px-5 filter invert brightness-0" alt="" /></a>
                    
                 

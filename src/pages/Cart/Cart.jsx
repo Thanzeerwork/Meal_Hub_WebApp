@@ -12,10 +12,11 @@ const Cart = () => {
   const deliveryFee = 2;
 
   return (
-    <div className="cart pt-20 px-5 md:px-10 text-white min-h-screen bg-black">
+    <div className="cart pt-20 px-5 md:px-10 text-white min-h-screen bg-black" id='cart'>
       <div className="cart-items space-y-6">
         <h1 className='text-center text-4xl font-bold mb-6'>Your Cart</h1>
-
+        
+        
         {/* Table Headings */}
         <div className="grid grid-cols-6 font-semibold border-b border-white/30 pb-2 text-left">
           <p>Items</p>
@@ -102,7 +103,7 @@ const Cart = () => {
 
         {/* Empty Cart */}
         {noofItems === 0 && (
-          <div className="flex flex-col items-center justify-center py-20 text-gray-400 space-y-4">
+          <div className="flex flex-col items-center justify-center py-20 text-gray-400 space-y-4 bg-transparent">
             <img src={assets.basket_icon} alt="Empty Cart" className="w-24 h-24 opacity-70" />
             <p className="text-xl font-medium">Your cart is empty</p>
             <p className="text-sm text-gray-500">Start adding items to see them here.</p>
