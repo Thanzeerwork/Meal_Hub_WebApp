@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Spline from '@splinetool/react-spline';
-import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
+
 
 const Login = () => {
   const [isLoaded, setIsLoaded] = useState(false);

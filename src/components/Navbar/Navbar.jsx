@@ -4,7 +4,7 @@ import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
 import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
 import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
 import { assets } from '../../assets/frontend_assets/assets'
-import { Link } from 'react-router-dom'
+
 
 
 const Navbar = ({ setShowLogin, ShowLogin }) => {

@@ -4,7 +4,7 @@ import { assets } from '../../assets/frontend_assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 
 const FoodItem = ({ id, name, image, price, description, category }) => {
-    const [itemCount, setitemCount] = useState(0)
+
     const { addToCart, cartItems,removeFromCart} = useContext(StoreContext);
     return (
        

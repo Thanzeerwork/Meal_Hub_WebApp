@@ -5,7 +5,7 @@ import Particles from '../../blocks/Backgrounds/Particles/Particles';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import Login from '../../components/Login/Login';
-import Register from '../../components/Register/Register';
+
 import Cart from '../Cart/Cart';
 
 const Home = ({ShowLogin}) => {
