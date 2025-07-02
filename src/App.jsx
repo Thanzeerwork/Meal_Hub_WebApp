@@ -7,6 +7,9 @@ import Login from './components/Login/Login'
 import Footer from './components/Footer/Footer'
 import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/Placeorder/PlaceOrder'
+import Products from './pages/admin/Products'
+import Dashboard from './pages/admin/Dashboard'
+import Users from './pages/admin/Users'
 
 
 const App = () => {
@@ -20,6 +23,10 @@ const App = () => {
     
     <Route path='/cart' element={<Cart/>}/>
     <Route path='/order' element={<PlaceOrder/>}/>
+     <Route path="/admin" element={<Dashboard/>} />
+        <Route path="/admin/products" element={<Products/>} />
+       
+        <Route path="/admin/users" element={<Users/>} />
    </Routes>
    <Footer/>
    </div>

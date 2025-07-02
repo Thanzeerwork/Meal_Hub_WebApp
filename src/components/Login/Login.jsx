@@ -1,13 +1,14 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
-
+import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showRegister, setRegister] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [showRegisterModel,setshowRegisterModel] = useState(false)
-
+  const [showRegisterModel, setshowRegisterModel] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,12 +34,14 @@ const Login = () => {
     } else {
       const user = users.find(user => user.email === email && user.password === password);
       if (user) {
-        setShowSuccessModal(true);
+        if (user.email === 'admin@site.com') {
+          navigate('/admin');
+        } else {
+          setShowSuccessModal(true);
+        }
         return;
-        // You can add a redirect or session flag here
-      } else {
-        alert("Invalid email or password.");
       }
+
     }
 
     form.reset();
