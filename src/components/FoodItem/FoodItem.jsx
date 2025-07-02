@@ -1,5 +1,5 @@
 import  { useContext, useState } from 'react'
-import AnimatedContent from '../../blocks/Animations/AnimatedContent/AnimatedContent'
+
 import { assets } from '../../assets/frontend_assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 
@@ -7,18 +7,7 @@ const FoodItem = ({ id, name, image, price, description, category }) => {
     const [itemCount, setitemCount] = useState(0)
     const { addToCart, cartItems,removeFromCart} = useContext(StoreContext);
     return (
-        <AnimatedContent
-            distance={100}
-            direction="vertical"
-            reverse={false}
-            duration={1.2}
-
-            initialOpacity={0.2}
-            animateOpacity
-            scale={1.1}
-            threshold={0.2}
-            delay={0.2}
-        >
+       
             <div className="card-xs bg-transparent  shadow-sm m-5 rounded-3xl">
                 <figure className='relative '>
                     <img className='rounded-t-3xl'
@@ -48,7 +37,7 @@ const FoodItem = ({ id, name, image, price, description, category }) => {
                 </div>
 
             </div>
-        </AnimatedContent>
+       
 
     )
 }
