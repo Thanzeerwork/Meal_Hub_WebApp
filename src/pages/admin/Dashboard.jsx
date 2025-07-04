@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import { StoreContext } from '../../context/StoreContext'; // Adjust the path as per your folder structure
 
@@ -8,14 +8,14 @@ const Dashboard = () => {
    
   
     useEffect(() => {
-      // Fetch users from localStorage
+      
       const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
       setUsers(storedUsers);
     }, []);
 
 
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-black pt-25">
+    <div className="flex min-h-screen bg-black  dark:bg-black pt-25 ">
       <Sidebar />
       <div className="p-8 w-full">
         <h1 className="text-3xl font-bold mb-4 text-black dark:text-white">Admin Dashboard</h1>
@@ -31,7 +31,7 @@ const Dashboard = () => {
 };
 
 const Card = ({ title, value }) => (
-  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+  <div className="bg-white border-b border-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-md">
     <p className="text-sm text-gray-500 dark:text-gray-300">{title}</p>
     <h2 className="text-2xl font-semibold dark:text-white">{value}</h2>
   </div>

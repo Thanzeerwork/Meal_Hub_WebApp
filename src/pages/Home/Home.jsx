@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
-
 import Particles from '../../blocks/Backgrounds/Particles/Particles';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import Login from '../../components/Login/Login';
+import Cart from '../../components/Cart/Cart';
 
-import Cart from '../Cart/Cart';
+const Home = ({ ShowLogin ,setShowLogin}) => {
+  const [category, setCategory] = useState('All');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const Home = ({ShowLogin}) => {
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+  }, []);
 
-  const [category,setCategory]= useState('All')
-  
   return (
-    <div className="relative w-full  min-h-screen overflow-hidden pt-25">
-     
+    <div className="relative w-full min-h-screen overflow-hidden pt-25">
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
         <Particles
           particleColors={['#ffffff', '#ffffff']}
@@ -28,15 +29,12 @@ const Home = ({ShowLogin}) => {
         />
       </div>
 
-     
-      <div className="relative z-10  md:px-30 ">
-        {ShowLogin?<Login/>: <Header />}
-       
-        <ExploreMenu category={category} setCategory={setCategory}/>
-        <FoodDisplay category={category}/>
-        <Cart/>
-       
-       
+      <div className="relative z-10 md:px-30">
+        {/* ✅ Only show Login if not logged in and ShowLogin is true */}
+        {ShowLogin && !isLoggedIn ? <Login setShowLogin={setShowLogin} /> : <Header />}
+        <ExploreMenu category={category} setCategory={setCategory} />
+        <FoodDisplay category={category} />
+        <Cart />
       </div>
     </div>
   );

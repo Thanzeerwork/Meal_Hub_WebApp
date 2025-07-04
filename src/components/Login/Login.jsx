@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Spline from '@splinetool/react-spline';
-import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
+
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ ShowLogin, setShowLogin }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showRegister, setRegister] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -34,13 +34,18 @@ const Login = () => {
     } else {
       const user = users.find(user => user.email === email && user.password === password);
       if (user) {
+        localStorage.setItem("isLoggedIn", "true");
         if (user.email === 'admin@site.com') {
           navigate('/admin');
         } else {
           setShowSuccessModal(true);
+          setTimeout(() => {
+            setShowLogin(false);  // 🔥 Hide Login after success
+          }, 1000); // Optional: Delay for 1 second to show success modal
         }
         return;
       }
+
 
     }
 

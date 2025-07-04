@@ -1,13 +1,31 @@
-
-import './Navbar.css'
-import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText'
-import StarBorder from '../../blocks/Animations/StarBorder/StarBorder'
-import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav'
-import { assets } from '../../assets/frontend_assets/assets'
-
-
+import './Navbar.css';
+import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText';
+import StarBorder from '../../blocks/Animations/StarBorder/StarBorder';
+import GooeyNav from '../../blocks/Components/GooeyNav/GooeyNav';
+import { assets } from '../../assets/frontend_assets/assets';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setShowLogin, ShowLogin }) => {
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const users = JSON.parse(localStorage.getItem("users") || "[]");
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        if (isLoggedIn && users.length > 0) {
+            const lastUser = users[users.length - 1]; // or track current user differently
+            setUser(lastUser);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("isLoggedIn");
+        setUser(null);
+        setShowLogin(false); // Hide login if it was shown
+        navigate('/'); // Optional: redirect to home
+        
+    };
 
     const items = [
         { label: "Home", href: "/#" },
@@ -21,11 +39,11 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><a>Item 1</a></li>
                         <li>
                             <a>Parent</a>
@@ -39,6 +57,7 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                 </div>
                 <ShinyText text="Galaxy Meals" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
             </div>
+
             <div style={{ position: 'relative' }} className='hidden md:block'>
                 <GooeyNav
                     items={items}
@@ -51,29 +70,33 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                     colors={[1, 2, 3, 1, 2, 3, 1, 4]}
                 />
             </div>
-            <div className='navbar-end'>
-                <a href="#menu"><img src={assets.search_icon} className="px-5 filter invert brightness-0" alt="" /></a>
-                
-                <a href="#cart"> <img src={assets.basket_icon} className="px-5 filter invert brightness-0" alt="" /></a>
-                   
-                
-                <div className="" onClick={() => setShowLogin(prev => prev === false ? true : false)}>
-                <StarBorder
-                    as="button"
-                    className="custom-class bg-transparent text-4xl px-15 "
-                    color="white"
-                    speed="3s"
-                >
-                    {ShowLogin ? 'Go Back' : 'Login'}
-                </StarBorder>
-            </div>
-            </div>
-            
 
-            
+            <div className='navbar-end flex items-center gap-4 pr-4'>
+                <a href="#menu"><img src={assets.search_icon} className="px-1 filter invert brightness-0" alt="" /></a>
+                <a href="#cart"><img src={assets.basket_icon} className="px-1 filter invert brightness-0" alt="" /></a>
 
+                {user ? (
+                    <div className="flex items-center gap-4 text-white">
+                        <span>Hello, {user.username || user.email}</span>
+                        <button onClick={handleLogout} className="px-3 py-1 bg-red-500 rounded hover:bg-red-600 text-sm">
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <div onClick={() => setShowLogin(true)}>
+                        <StarBorder
+                            as="button"
+                            className="custom-class bg-transparent text-4xl px-15"
+                            color="white"
+                            speed="3s"
+                        >
+                            {ShowLogin ? 'Go Back' : 'Login'}
+                        </StarBorder>
+                    </div>
+                )}
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
