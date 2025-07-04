@@ -14,7 +14,7 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
         const users = JSON.parse(localStorage.getItem("users") || "[]");
         const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
         if (isLoggedIn && users.length > 0) {
-            const lastUser = users[users.length - 1]; // or track current user differently
+            const lastUser = users[users.length - 1]; 
             setUser(lastUser);
         }
     }, []);
@@ -22,8 +22,9 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         setUser(null);
-        setShowLogin(false); // Hide login if it was shown
-        navigate('/'); // Optional: redirect to home
+        setShowLogin(false);
+        window.location.reload(); 
+        navigate('/'); 
         
     };
 
@@ -83,14 +84,14 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                         </button>
                     </div>
                 ) : (
-                    <div onClick={() => setShowLogin(true)}>
+                    <div onClick={() => setShowLogin(prev => !prev)}>
                         <StarBorder
                             as="button"
                             className="custom-class bg-transparent text-4xl px-15"
                             color="white"
                             speed="3s"
                         >
-                            {ShowLogin ? 'Go Back' : 'Login'}
+                          {ShowLogin?'Go Back':'Login'}
                         </StarBorder>
                     </div>
                 )}

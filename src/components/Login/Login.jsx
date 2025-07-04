@@ -3,7 +3,7 @@ import Spline from '@splinetool/react-spline';
 
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ ShowLogin, setShowLogin }) => {
+const Login = ({ setShowLogin }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showRegister, setRegister] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -28,7 +28,7 @@ const Login = ({ ShowLogin, setShowLogin }) => {
       }
       users.push({ email, password, username });
       localStorage.setItem("users", JSON.stringify(users));
-      // alert("Registration successful!");
+      
       setshowRegisterModel(true);
       setRegister(false);
     } else {
@@ -40,11 +40,13 @@ const Login = ({ ShowLogin, setShowLogin }) => {
         } else {
           setShowSuccessModal(true);
           setTimeout(() => {
-            setShowLogin(false);  // 🔥 Hide Login after success
-          }, 1000); // Optional: Delay for 1 second to show success modal
+            setShowLogin(false); // Hide login
+            window.location.reload(); // 🔄 Refresh page to update UI
+          }, 1000); // Optional delay to show success modal
         }
         return;
       }
+
 
 
     }

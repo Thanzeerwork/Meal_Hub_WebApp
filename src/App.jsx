@@ -10,6 +10,7 @@ import Products from './pages/admin/Products'
 import Dashboard from './pages/admin/Dashboard'
 import Users from './pages/admin/Users'
 import Cart from './components/Cart/Cart'
+import Orders from './pages/admin/Orders'
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/orders" element={<Orders/>} />
       </Routes>
       <Footer />
     </div>

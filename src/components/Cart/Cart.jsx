@@ -1,4 +1,4 @@
-import  { useContext } from 'react';
+import { useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/frontend_assets/assets';
 import { useNavigate } from 'react-router-dom';
@@ -11,12 +11,45 @@ const Cart = () => {
   let subtotal = 0;
   const deliveryFee = 2;
 
+  const handlePlaceOrder = () => {
+    const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+
+    const orderedItems = Object.entries(cartItems)
+      .filter(([id, qty]) => qty > 0)
+      .map(([id, qty]) => {
+        const item = food_list.find(f => f._id === id);
+        return {
+          id,
+          name: item.name,
+          price: item.price,
+          quantity: qty,
+          total: item.price * qty
+        };
+      });
+
+    const newOrder = {
+      id: Date.now(),
+      items: orderedItems,
+      subtotal: subtotal.toFixed(2),
+      deliveryFee: deliveryFee.toFixed(2),
+      total: (subtotal + deliveryFee).toFixed(2),
+      date: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("orders", JSON.stringify([...orders, newOrder]));
+
+    alert("✅ Order placed successfully!");
+    // Optionally, reset cart:
+    window.location.reload(); // Or call a resetCart() function from StoreContext
+  };
+
+
   return (
     <div className="cart pt-20 px-5 md:px-10 text-white min-h-screen bg-black" id='cart'>
       <div className="cart-items space-y-6">
         <h1 className='text-center text-4xl font-bold mb-6'>Your Cart</h1>
-        
-        
+
+
         {/* Table Headings */}
         <div className="grid grid-cols-6 font-semibold border-b border-white/30 pb-2 text-left">
           <p>Items</p>
@@ -79,10 +112,11 @@ const Cart = () => {
                 <p>Total</p>
                 <p>₹{(subtotal + deliveryFee).toFixed(2)}</p>
               </div>
-              <button 
-              className="w-full mt-4 py-3 bg-blue-600 rounded hover:bg-blue-700 transition font-semibold"
-              onClick={()=> navigate('/order')}>
-                Proceed to Checkout
+              <button
+                className="w-full mt-4 py-3 bg-blue-600 rounded hover:bg-blue-700 transition font-semibold"
+                onClick={handlePlaceOrder}
+              >
+                Place Order
               </button>
             </div>
 

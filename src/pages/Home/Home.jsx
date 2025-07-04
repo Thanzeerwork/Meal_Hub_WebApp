@@ -30,7 +30,7 @@ const Home = ({ ShowLogin ,setShowLogin}) => {
       </div>
 
       <div className="relative z-10 md:px-30">
-        {/* ✅ Only show Login if not logged in and ShowLogin is true */}
+        
         {ShowLogin && !isLoggedIn ? <Login setShowLogin={setShowLogin} /> : <Header />}
         <ExploreMenu category={category} setCategory={setCategory} />
         <FoodDisplay category={category} />
