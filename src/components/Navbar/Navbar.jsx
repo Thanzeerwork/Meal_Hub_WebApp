@@ -14,7 +14,7 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
         const users = JSON.parse(localStorage.getItem("users") || "[]");
         const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
         if (isLoggedIn && users.length > 0) {
-            const lastUser = users[users.length - 1]; 
+            const lastUser = users[users.length - 1];
             setUser(lastUser);
         }
     }, []);
@@ -23,9 +23,9 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
         localStorage.removeItem("isLoggedIn");
         setUser(null);
         setShowLogin(false);
-        window.location.reload(); 
-        navigate('/'); 
-        
+        window.location.reload();
+        navigate('/');
+
     };
 
     const items = [
@@ -45,15 +45,13 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li className='active'><a>Item 3</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#">Mobile App</a></li>
+                        <li><a href="#menu">Search</a></li>
+
+                        <li className='active'><a href="#cart">Cart</a></li>
+                        <li><a href="#footer">Contact</a></li>
                     </ul>
                 </div>
                 <ShinyText text="Galaxy Meals" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
@@ -73,8 +71,13 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
             </div>
 
             <div className='navbar-end flex items-center gap-4 pr-4'>
-                <a href="#menu"><img src={assets.search_icon} className="px-1 filter invert brightness-0" alt="" /></a>
-                <a href="#cart"><img src={assets.basket_icon} className="px-1 filter invert brightness-0" alt="" /></a>
+                <a href="#menu" className="hidden md:block">
+                    <img src={assets.search_icon} className="px-1 filter invert brightness-0" alt="" />
+                </a>
+                <a href="#cart" className="hidden md:block">
+                    <img src={assets.basket_icon} className="px-1 filter invert brightness-0" alt="" />
+                </a>
+
 
                 {user ? (
                     <div className="flex items-center gap-4 text-white">
@@ -91,7 +94,7 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
                             color="white"
                             speed="3s"
                         >
-                          {ShowLogin?'Go Back':'Login'}
+                            {ShowLogin ? 'Go Back' : 'Login'}
                         </StarBorder>
                     </div>
                 )}
