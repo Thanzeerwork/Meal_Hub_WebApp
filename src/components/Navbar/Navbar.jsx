@@ -52,6 +52,7 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
 
                         <li className='active'><a href="#cart">Cart</a></li>
                         <li><a href="#footer">Contact</a></li>
+                        <li><button onClick={handleLogout}>Logout</button></li>
                     </ul>
                 </div>
                 <ShinyText text="Galaxy Meals" disabled={false} speed={2} className='custom-class text-2xl pl-8' />
@@ -80,9 +81,9 @@ const Navbar = ({ setShowLogin, ShowLogin }) => {
 
 
                 {user ? (
-                    <div className="flex items-center gap-4 text-white">
+                    <div className="flex items-center gap-4 text-white ">
                         <span>Hello, {user.username || user.email}</span>
-                        <button onClick={handleLogout} className="px-3 py-1 bg-red-500 rounded hover:bg-red-600 text-sm">
+                        <button onClick={handleLogout} className=" hidden md:block px-3 py-1 bg-red-500 rounded hover:bg-red-600 text-sm">
                             Logout
                         </button>
                     </div>
