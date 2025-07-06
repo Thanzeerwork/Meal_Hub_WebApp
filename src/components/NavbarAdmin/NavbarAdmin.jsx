@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText';
 

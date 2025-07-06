@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  {useState } from 'react';
 import Spline from '@splinetool/react-spline';
 
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const Login = ({ setShowLogin }) => {
       }
       users.push({ email, password, username });
       localStorage.setItem("users", JSON.stringify(users));
-      
+
       setshowRegisterModel(true);
       setRegister(false);
     } else {
@@ -45,6 +45,9 @@ const Login = ({ setShowLogin }) => {
           }, 1000); // Optional delay to show success modal
         }
         return;
+      }
+      else {
+        alert("User not found or incorrect credentials!");
       }
 
 

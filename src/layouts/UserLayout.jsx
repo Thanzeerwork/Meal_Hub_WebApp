@@ -1,4 +1,4 @@
-// src/layouts/UserLayout.jsx
+
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { Outlet } from 'react-router-dom';
@@ -7,7 +7,7 @@ import Particles from '../blocks/Backgrounds/Particles/Particles';
 const UserLayout = ({ ShowLogin, setShowLogin }) => {
   return (
     <div className="relative w-full min-h-screen text-white">
-      {/* Background */}
+      
       <div className="fixed top-0 left-0 w-full h-full -z-10 bg-black">
         <Particles
           particleColors={['#ffffff', '#ffffff']}

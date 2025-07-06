@@ -1,4 +1,4 @@
-// src/layouts/AdminLayout.jsx
+
 import { Outlet } from 'react-router-dom';
 import NavbarAdmin from '../components/NavbarAdmin/NavbarAdmin';
 const AdminLayout = () => {
@@ -6,7 +6,7 @@ const AdminLayout = () => {
     
     <div className="relative w-full min-h-screen text-white">
        
-      {/* Optional: Add sidebar/navbar here */}
+      
       <NavbarAdmin />
       <Outlet />
     </div>
