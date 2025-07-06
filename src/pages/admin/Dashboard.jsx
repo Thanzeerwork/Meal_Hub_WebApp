@@ -15,7 +15,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className="flex min-h-screen bg-black  dark:bg-black pt-25 ">
+    <div className="flex min-h-screen bg-black  dark:bg-black  ">
       <Sidebar />
       <div className="p-8 w-full">
         <h1 className="text-3xl font-bold mb-4 text-black dark:text-white">Admin Dashboard</h1>
