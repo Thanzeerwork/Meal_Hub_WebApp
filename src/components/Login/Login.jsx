@@ -1,4 +1,4 @@
-import  {useState } from 'react';
+import  {useState,useEffect } from 'react';
 import Spline from '@splinetool/react-spline';
 
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,23 @@ const Login = ({ setShowLogin }) => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showRegisterModel, setshowRegisterModel] = useState(false)
   const navigate = useNavigate()
+
+  useEffect(() => {
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const adminExists = users.some(user => user.email === "admin@site.com");
+
+  if (!adminExists) {
+    users.push({
+      email: "admin@site.com",
+      password: "Admin@123", // You can update this to a stronger password
+      username: "Admin"
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+}, []);
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

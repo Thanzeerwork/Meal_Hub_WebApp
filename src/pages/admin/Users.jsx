@@ -10,7 +10,7 @@ const Users = () => {
   }, []);
 
   return (
-    <div className="p-8 w-full">
+    <div className="p-8 w-full bg-black min-h-screen">
       <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">User Accounts</h2>
       <table className="w-full bg-white dark:bg-gray-800 border rounded-lg">
         <thead>

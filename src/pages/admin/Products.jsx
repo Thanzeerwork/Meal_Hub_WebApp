@@ -5,8 +5,8 @@ const Products = () => {
   const { food_list } = useContext(StoreContext);
 
   return (
-    <div className="p-8 w-full">
-      <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">Manage Products</h2>
+    <div className="p-8 w-full bg-black">
+      <h2 className="text-2xl font-bold mb-4 text-black bg-black dark:text-white">Manage Products</h2>
       <table className="w-full bg-white dark:bg-gray-800 border rounded-lg">
         <thead>
           <tr className="bg-gray-200 dark:bg-gray-700">
@@ -19,7 +19,7 @@ const Products = () => {
         </thead>
         <tbody>
           {food_list.map((prod) => (
-            <tr key={prod._id} className="border-b border-gray-200 dark:border-gray-700">
+            <tr key={prod._id} className="border-b border-gray-200 bg-black dark:border-gray-700">
               <td className="p-2">
                 <img src={prod.image} alt={prod.name} className="w-12 h-12 rounded" />
               </td>
